@@ -51,7 +51,7 @@ class Pipeline(private val context: Context, private val cancelled: AtomicBoolea
         require(samples.isNotEmpty()) { "Аудиофайл пуст" }
         val duration = samples.size / 16000f
         val warnings = mutableListOf<String>()
-        progress("Определение говорящих")
+        progress("Загрузка моделей диаризации")
         val diarization = OfflineSpeakerDiarization(config = OfflineSpeakerDiarizationConfig(
             segmentation = OfflineSpeakerSegmentationModelConfig(
                 pyannote = OfflineSpeakerSegmentationPyannoteModelConfig(File(root,"segmentation.onnx").path), numThreads = 2),
@@ -60,10 +60,12 @@ class Pipeline(private val context: Context, private val cancelled: AtomicBoolea
         ))
         val turns = try {
             require(diarization.sampleRate() == 16000)
-            Transcript.normalize(diarization.processWithCallback(samples, { done, total, _ ->
+            progress("Определение говорящих")
+            val callback = DiarizationProgressCallback { done, total ->
                 progress("Диаризация: $done / $total")
-                0 // Sherpa v2.0.1 ignores the return value; cancellation is checked after this native call.
-            }).map { Turn(it.speaker, it.start, it.end) }, duration)
+            }
+            Transcript.normalize(diarization.processWithCallback(samples, callback)
+                .map { Turn(it.speaker, it.start, it.end) }, duration)
         } finally { diarization.release() }
         check()
         if (turns.indices.any { i -> turns.take(i).any { it.end > turns[i].start && it.speaker != turns[i].speaker } }) {

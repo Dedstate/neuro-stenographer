@@ -3,6 +3,7 @@
 import hashlib
 import json
 import os
+import re
 from pathlib import Path
 import shutil
 import subprocess
@@ -45,6 +46,26 @@ def verify_native_versions(apk):
                     raise ValueError(f'{abi}/{consumer}: runtime does not export {sorted(missing)}')
             print(f'{abi}: Sherpa and Java JNI symbols match the packaged runtime')
 
+def verify_callback_dex(apk, dexdump):
+    descriptor = "Class descriptor  : 'Lru/neurostenographer/DiarizationProgressCallback;'"
+    with tempfile.TemporaryDirectory(prefix='neuro-callback-check-') as scratch:
+        for name in apk.namelist():
+            if not name.endswith('.dex'):
+                continue
+            path = Path(scratch) / Path(name).name
+            path.write_bytes(apk.read(name))
+            dump = subprocess.check_output([str(dexdump), str(path)], text=True)
+            start = dump.find(descriptor)
+            if start < 0:
+                continue
+            end = dump.find('\nClass #', start)
+            block = dump[start:end] if end >= 0 else dump[start:]
+            if re.search(r"name\s*:\s*'invoke'\s+type\s*:\s*'\(IIJ\)Ljava/lang/Integer;'", block):
+                print('DEX: concrete callback exposes invoke(IIJ)Ljava/lang/Integer;')
+                return
+            raise ValueError('Diarization callback has no JNI-compatible typed invoke method')
+    raise ValueError('APK is missing the concrete DiarizationProgressCallback class')
+
 def check(path):
     manifest = json.loads((ROOT / 'android/app/src/main/assets/models/manifest.json').read_text())
     with zipfile.ZipFile(path) as apk:
@@ -64,10 +85,15 @@ def check(path):
             aapt = str(candidates[-1])
     if not aapt:
         raise RuntimeError('Set ANDROID_HOME to verify merged APK permissions with aapt')
+    dexdump = Path(aapt).resolve().with_name('dexdump')
+    if not dexdump.is_file():
+        raise RuntimeError('Android Build-Tools dexdump is required to verify the JNI callback')
+    with zipfile.ZipFile(path) as apk:
+        verify_callback_dex(apk, dexdump)
     permissions = subprocess.check_output([aapt, 'dump', 'permissions', str(path)], text=True)
     if 'android.permission.INTERNET' in permissions:
         raise ValueError('APK requests INTERNET')
-    print('APK model hashes, native linkage, both ABIs and absence of INTERNET verified')
+    print('APK model hashes, native linkage, JNI callback, both ABIs and absence of INTERNET verified')
 
 if __name__ == '__main__':
     check(sys.argv[1])

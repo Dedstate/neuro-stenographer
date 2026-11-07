@@ -1,9 +1,9 @@
 {
-  "filename": "neuro-stenographer-0.1.1-debug.apk",
-  "version_name": "0.1.1",
-  "version_code": 2,
-  "size_bytes": 336057012,
-  "sha256": "df5e842849133c1ab9b44be740724a1c31a5d5c1a341b1ae8452861880e2893e",
+  "filename": "neuro-stenographer-0.1.2-debug.apk",
+  "version_name": "0.1.2",
+  "version_code": 3,
+  "size_bytes": 336057584,
+  "sha256": "6b81793a8e41914c1e783f4d5dae131c52d7afc14671bc9e5b537c7c47029c43",
   "build_type": "debug",
   "abis": [
     "arm64-v8a",
@@ -12,5 +12,6 @@
   "models_embedded": true,
   "internet_permission": false,
   "native_linkage_verified": true,
+  "callback_dex_signature_verified": true,
   "android_runtime_tested": false
 }

@@ -1,3 +1,13 @@
+# Исправление 0.1.2 — JNI callback диаризации
+
+По пользовательским логам процесс 0.1.1 завершён APP CRASH(NATIVE), SIGABRT. Причина: NoSuchMethodError при поиске invoke(IIJ)Ljava/lang/Integer; на Kotlin 2 invokedynamic lambda. Это не зарегистрированное OOM/low-memory завершение.
+
+Введён именованный DiarizationProgressCallback, реализующий Function3 с конкретным типизированным методом. Два JVM-теста проверяют точную JNI-сигнатуру, boxed Integer return и Function3 bridge. NativeSmokeTest теперь вызывает тот же processWithCallback, который используется в приложении.
+
+Результаты: 15 JVM-тестов и 6 Python-тестов прошли; assembleDebug, assembleDebugAndroidTest, lintDebug завершились успешно. В готовом DEX подтверждён invoke(IIJ)Ljava/lang/Integer;. Новая check_apk.py проверяет его автоматически и отвергает APK 0.1.1. Проверены модельные хэши, ELF-linkage обеих ABI и отсутствие INTERNET. Полный повторный запуск 0.1.2 на Android ещё требуется; это не подтверждение качества/скорости моделей.
+
+---
+
 # Исправление 0.1.1 — ошибка dlopen на Android
 
 Пользовательский запуск подтвердил: APK 0.1.0 не мог загрузить Sherpa JNI из-за `OrtGetApiBase@VERS_1.28.2` против runtime `VERS_1.28.0`. Предыдущая проверка наличия файлов не обнаруживала эту несовместимость.

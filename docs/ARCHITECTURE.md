@@ -21,3 +21,7 @@ RAM: один FloatArray для PCM16k (около 36.6 МиБ на 10 мину�
 ## Исправление 0.1.1: нативная линковка
 
 Родной Sherpa JNI связан с ELF-символом `OrtGetApiBase@VERS_1.28.2`. Ранее Maven runtime 1.28.0 экспортировал только `VERS_1.28.0`, что приводило к dlopen failed на телефоне. Совпадение C API 28 не устраняет несовпадение ELF-version. Теперь runtime взят из того же Sherpa-архива, что и Sherpa JNI, а официальный Java JNI 1.28.0 пересобран линковщиком с этим runtime для обеих ABI. Java classes.jar сохранён из официального AAR. APK-проверка сравнивает версии всех импортируемых `Ort*`-символов обоих JNI с экспортами runtime.
+
+## Исправление 0.1.2: callback прогресса
+
+В Sherpa 2.0.1 JNI callback проверяется через GetMethodID конкретного объекта с дескриптором invoke(IIJ)Ljava/lang/Integer;. У Kotlin 2 indy-lambda такого метода нет; ожидаемый NoSuchMethodError не очищается native-кодом и приводит к JNI abort. Поэтому Pipeline передаёт отдельный именованный DiarizationProgressCallback. Корректность дескриптора проверяется и JVM-тестом, и разбором конечного DEX через Android Build-Tools dexdump. Прогресс сохранён; немедленная отмена нативного вызова всё ещё не обещается.

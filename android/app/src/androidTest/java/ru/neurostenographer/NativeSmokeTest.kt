@@ -18,7 +18,7 @@ class NativeSmokeTest {
         val sd=OfflineSpeakerDiarization(config=OfflineSpeakerDiarizationConfig(
             segmentation=OfflineSpeakerSegmentationModelConfig(pyannote=OfflineSpeakerSegmentationPyannoteModelConfig(File(root,"segmentation.onnx").path)),
             embedding=SpeakerEmbeddingExtractorConfig(model=File(root,"embedding.onnx").path)))
-        try { assertEquals(16000,sd.sampleRate()); sd.process(FloatArray(16000)) } finally { sd.release() }
+        try { assertEquals(16000,sd.sampleRate()); sd.processWithCallback(FloatArray(16000), DiarizationProgressCallback { _, _ -> }) } finally { sd.release() }
         val asr=OfflineRecognizer(config=OfflineRecognizerConfig(modelConfig=OfflineModelConfig(
             nemo=OfflineNemoEncDecCtcModelConfig(File(root,"asr.int8.onnx").path),tokens=File(root,"tokens.txt").path)))
         try {
