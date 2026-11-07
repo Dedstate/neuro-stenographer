@@ -1,0 +1,57 @@
+{
+  "downloads": [
+    {
+      "name": "sherpa-android-2.0.1.tar.bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/v2.0.1/sherpa-onnx-v2.0.1-android.tar.bz2",
+      "sha256": "39003753ec293425ed56723ea9b972b98841a490af3311670c3060548d654330",
+      "kind": "tar",
+      "files": {
+        "./jniLibs/arm64-v8a/libsherpa-onnx-jni.so": "android/app/src/main/jniLibs/arm64-v8a/libsherpa-onnx-jni.so",
+        "./jniLibs/x86_64/libsherpa-onnx-jni.so": "android/app/src/main/jniLibs/x86_64/libsherpa-onnx-jni.so",
+        "./jniLibs/arm64-v8a/libonnxruntime.so": "android/app/src/main/jniLibs/arm64-v8a/libonnxruntime.so",
+        "./jniLibs/x86_64/libonnxruntime.so": "android/app/src/main/jniLibs/x86_64/libonnxruntime.so"
+      }
+    },
+    {
+      "name": "giga-v2.tar.bz2",
+      "url": "https://github.com/k2-fsa/sherpa-onnx/releases/download/asr-models/sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19.tar.bz2",
+      "sha256": "777be8717d8aaf04861823671290f7687f7579fd9ac63a2124955573f920caf5",
+      "kind": "tar",
+      "files": {
+        "sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/model.int8.onnx": "android/app/src/main/assets/models/asr.int8.onnx",
+        "sherpa-onnx-nemo-ctc-giga-am-v2-russian-2025-04-19/tokens.txt": "android/app/src/main/assets/models/tokens.txt"
+      }
+    },
+    {
+      "name": "diarization-baseline.apk",
+      "url": "https://raw.githubusercontent.com/Dedstate/neuro-stenographer/be8a823e233ad6d44bfffd4490fc26eddc282ff8/src/android/app/src/main/assets/sherpa-onnx-1.12.22-arm64-v8a-speaker-diarization-pyannote_audio-3dspeaker.apk",
+      "sha256": "e626409fa89ff2e9be30f85a02cbfb3663c726925f1be3739432594bfcc0f99d",
+      "kind": "zip",
+      "files": {
+        "assets/segmentation.onnx": "android/app/src/main/assets/models/segmentation.onnx",
+        "assets/embedding.onnx": "android/app/src/main/assets/models/embedding.onnx"
+      }
+    },
+    {
+      "name": "rupunct_small_int8.onnx",
+      "url": "https://huggingface.co/ekhodzitsky/rupunct-small-onnx/resolve/c4a35be7e4a413cdfb08427db75b621b571569c9/rupunct_small_int8.onnx",
+      "sha256": "b105da023474d98aa13ba18953ae67b04b17bd0595034bc06030c17536893933",
+      "kind": "file",
+      "destination": "android/app/src/main/assets/models/rupunct.int8.onnx"
+    },
+    {
+      "name": "config.json",
+      "url": "https://huggingface.co/ekhodzitsky/rupunct-small-onnx/resolve/c4a35be7e4a413cdfb08427db75b621b571569c9/config.json",
+      "sha256": "6924a8cf41ec2bd3a3aa73a387ae0ccd0aed253ec7cac4d2f53c7d27440891eb",
+      "kind": "file",
+      "destination": "android/app/src/main/assets/models/config.json"
+    },
+    {
+      "name": "tokenizer.json",
+      "url": "https://huggingface.co/ekhodzitsky/rupunct-small-onnx/resolve/c4a35be7e4a413cdfb08427db75b621b571569c9/tokenizer.json",
+      "sha256": "7ca617388c2092a3a84272025c52bbf3c6db0aee225c0351186295c0b5d3ddc6",
+      "kind": "file",
+      "destination": "android/app/src/main/assets/models/tokenizer.json"
+    }
+  ]
+}
