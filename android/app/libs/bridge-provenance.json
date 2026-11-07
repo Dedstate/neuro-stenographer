@@ -1,0 +1,14 @@
+{
+  "java_api": "ONNX Runtime 1.28.0 (unmodified classes.jar from official Maven AAR)",
+  "official_aar_sha256": "f351a0638696f54b35184290dbc001d66daae17281ad0b548d2c70347d53b8a9",
+  "native_source_tag": "https://github.com/microsoft/onnxruntime/tree/v1.28.0",
+  "runtime": "Sherpa v2.0.1 Android libonnxruntime.so 1.28.2",
+  "ndk": "27.2.12479018",
+  "android_api": 26,
+  "elf_page_alignment": 16384,
+  "abis": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "bridge_aar_sha256": "3ae5d0ead23994f847d42700937f00c48cbab5db185fcb50357f3beabb001643"
+}

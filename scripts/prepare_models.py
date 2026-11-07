@@ -21,9 +21,6 @@ def sha(path):
 def prepare():
     cache = Path(os.environ.get('NEURO_MODEL_CACHE', ROOT / '.model-cache'))
     cache.mkdir(parents=True, exist_ok=True)
-    # Remove an older duplicated ORT: the AAR supplies the sole runtime.
-    for stale in (ROOT / 'android/app/src/main/jniLibs').glob('*/libonnxruntime.so'):
-        stale.unlink()
     lock = json.loads((ROOT / 'scripts/models.lock.json').read_text())
     for item in lock['downloads']:
         archive = cache / item['name']
