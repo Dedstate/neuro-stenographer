@@ -40,3 +40,12 @@ artifacts/demo/*.mov
 artifacts/demo/*.mkv
 artifacts/demo/*.wav
 
+# Android runtime artifacts are reproduced from scripts/models.lock.json
+.model-cache/
+android/local.properties
+android/app/src/main/jniLibs/
+android/app/src/main/assets/models/*
+!android/app/src/main/assets/models/manifest.json
+*.apk
+
+.kotlin/

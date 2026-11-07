@@ -1,0 +1,13 @@
+{
+  "filename": "neuro-stenographer-offline-debug.apk",
+  "size_bytes": 361256319,
+  "sha256": "c6153b261af89565865b96cbb07c1424836a0ad6b2da64f4a32de25adddcd1c8",
+  "build_type": "debug",
+  "abis": [
+    "arm64-v8a",
+    "x86_64"
+  ],
+  "models_embedded": true,
+  "internet_permission": false,
+  "android_runtime_tested": false
+}
