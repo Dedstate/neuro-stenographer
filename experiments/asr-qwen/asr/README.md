@@ -1,5 +1,7 @@
+> Исторический материал прототипа. Основное приложение и актуальные инструкции находятся в корневом README.
 
-# GigaAM v2 — Android ASR
+
+# GigaAM v2 - Android ASR
 
 Локальное распознавание русской речи на Android с помощью
 GigaAM v2 CTC INT8 и sherpa-onnx.

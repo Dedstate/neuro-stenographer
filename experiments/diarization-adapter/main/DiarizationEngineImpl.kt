@@ -6,7 +6,7 @@ class DiarizationEngineImpl(
 ) : DiarizationEngine {
 
     private val sd: OfflineSpeakerDiarization by lazy {
-        val segmentationModel = "pyannote-segmentation-3-0.onnx" 
+        val segmentationModel = "pyannote-segmentation-3-0.onnx"
         val embeddingModel = "3dspeaker_speech_eres2net_base_sv_zh-cn_3dspeaker_16k.onnx"
         val config = OfflineSpeakerDiarizationConfig(
             segmentation = OfflineSpeakerSegmentationModelConfig(
@@ -35,6 +35,6 @@ class DiarizationEngineImpl(
     }
 
     fun release() {
-        sd.release() 
+        sd.release()
     }
 }
