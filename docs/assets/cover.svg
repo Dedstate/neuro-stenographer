@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1280" height="460" viewBox="0 0 1280 460" role="img" aria-labelledby="title desc">
+  <title id="title">Нейро-стенографист</title>
+  <desc id="desc">Русская речь, говорящие и таймкоды. Обработка аудиозаписей на Android.</desc>
+  <defs>
+    <linearGradient id="paper" x2="1" y2="1"><stop stop-color="#f5f1e9"/><stop offset="1" stop-color="#e7eee8"/></linearGradient>
+    <linearGradient id="ink" x2="1" y2="1"><stop stop-color="#214b42"/><stop offset="1" stop-color="#102b26"/></linearGradient>
+    <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse"><path d="M30 0H0V30" fill="none" stroke="#24483c" stroke-opacity=".045"/></pattern>
+  </defs>
+  <rect width="1280" height="460" rx="24" fill="url(#paper)"/>
+  <rect width="1280" height="460" rx="24" fill="url(#grid)"/>
+  <path d="M0 390H1280" stroke="#173c33" stroke-opacity=".12"/>
+  <rect x="54" y="45" width="40" height="40" rx="12" fill="#173c33"/>
+  <g stroke="#f5f1e9" stroke-width="3" stroke-linecap="round"><path d="M64 62v6m7-13v20m7-25v30m7-20v10"/></g>
+  <text x="108" y="72" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="3" fill="#173c33">NUCLEAR IT HACK</text>
+  <text x="54" y="169" font-family="Arial, sans-serif" font-size="57" font-weight="700" letter-spacing="-2" fill="#142f29">Нейро-стенографист</text>
+  <text x="57" y="219" font-family="Arial, sans-serif" font-size="25" fill="#3e5c53">Разговор становится документом.</text>
+  <text x="57" y="262" font-family="Arial, sans-serif" font-size="18" fill="#526c61">Русская речь. Говорящие. Таймкоды.</text>
+  <g font-family="Arial, sans-serif" font-size="14" font-weight="700">
+    <rect x="56" y="309" width="138" height="36" rx="18" fill="#173c33"/><text x="125" y="332" text-anchor="middle" fill="#f5f1e9">НА УСТРОЙСТВЕ</text>
+    <rect x="205" y="309" width="103" height="36" rx="18" fill="#dfc9b6"/><text x="256" y="332" text-anchor="middle" fill="#653c27">ANDROID</text>
+    <rect x="319" y="309" width="121" height="36" rx="18" fill="#d3dfd5"/><text x="379" y="332" text-anchor="middle" fill="#173c33">JSON EXPORT</text>
+  </g>
+  <g transform="translate(862 61)">
+    <rect width="356" height="288" rx="22" fill="url(#ink)"/>
+    <g stroke="#a4bfb0" stroke-opacity=".12"><path d="M28 72H328M28 144H328M28 216H328"/><path d="M88 28V260M176 28V260M264 28V260"/></g>
+    <g stroke="#d9e6ce" stroke-width="7" stroke-linecap="round">
+      <path d="M37 137v14m15-23v32m15-51v70m15-95v120m15-73v76m15-107v140m15-114v88m15-64v39m15-52v63m15-80v98"/>
+    </g>
+    <g stroke="#d9946f" stroke-width="7" stroke-linecap="round"><path d="M193 134v20m15-36v52m15-84v116m15-97v76m15-130v182m15-120v60m15-35v18m15-45v70m15-46v24"/></g>
+    <circle cx="30" cy="30" r="4" fill="#d9946f"/>
+    <g stroke="#a4bfb0" stroke-linecap="round" stroke-opacity=".65" stroke-width="3"><path d="M45 30h75M30 253h110M30 264h67"/></g>
+  </g>
+  <text x="56" y="427" font-family="Arial, sans-serif" font-size="15" letter-spacing="1" fill="#536b60">АУДИО → РЕПЛИКИ → СТРУКТУРИРОВАННАЯ СТЕНОГРАММА</text>
+  <text x="1218" y="427" text-anchor="end" font-family="Arial, sans-serif" font-size="14" fill="#536b60">DEDSTATE / 2026</text>
+</svg>

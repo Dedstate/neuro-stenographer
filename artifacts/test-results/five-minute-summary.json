@@ -1,0 +1,17 @@
+{
+  "source": "user-provided JSON export of the Russian LibriVox Chekhov test excerpt",
+  "input_duration_seconds": 300,
+  "input_format": "WAV PCM16 mono 16000 Hz",
+  "segments": 68,
+  "detected_speaker_ids": 15,
+  "first_start_ms": 31,
+  "last_end_ms": 299967,
+  "segments_under_one_second": 12,
+  "overlap_pairs": 3,
+  "apk_version": null,
+  "wer": null,
+  "der": null,
+  "rtf": null,
+  "peak_pss_mb": null,
+  "assessment": "export completed; speaker fragmentation and ASR errors observed"
+}
