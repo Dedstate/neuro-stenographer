@@ -3,7 +3,7 @@
 ## Что подтверждено
 
 - Финальный APK успешно собран с Android SDK 35 / Gradle 8.9 / JDK 21 и ONNX Runtime Android 1.28.0. `assembleDebug`, `testDebugUnitTest`, `lintDebug`, `assembleDebugAndroidTest` завершились успешно.
-- 13 Kotlin/JVM-тестов прошли (0 ошибок), в том числе parity WordPiece с эталонными ID Hugging Face. Lint: 0 ошибок; предупреждения об i18n, backup policy, иконке и комментарии upstream.
+- 13 Kotlin/JVM-тестов прошли (0 ошибок), в том числе parity WordPiece с эталонными ID Hugging Face. Lint: 0 ошибок, 12 предупреждений; предупреждения об i18n, backup policy, иконке и комментарии upstream.
 - APK: 361 256 319 байт (344.5 МиБ); подпись v2 проверена apksigner. SHA-256, ABI и отсутствие INTERNET permission проверены. Точный хэш: `artifacts/test-results/apk-build.json`.
 - Android instrumentation APK скомпилирован, но не запущен: устройства и KVM в среде нет.
 - Kotlin unit tests покрывают точный JSON-контракт, границы/сортировку спикеров, непрерывность ASR-нарезки, ресемплирование и anti-alias, WordPiece, метки RUPunct, WAV16 stereo/24-bit/float и повреждённый WAV.
